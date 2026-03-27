@@ -18,36 +18,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle Theme
     themeToggleBtn.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-            document.documentElement.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        }
-    });
-
-    /* --- Mobile Menu Toggle --- */
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-link');
-
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.querySelector('i').classList.toggle('fa-times');
-        hamburger.querySelector('i').classList.toggle('fa-bars');
-    });
-
-    // Close menu when a link is clicked
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        
+        // Trigger Sun/Moon Icon Animation
+        themeIcon.classList.add('animate-mode-spin');
+        
+        // Wait for it to spin out, then swap and spin back in
+        setTimeout(() => {
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
             }
-        });
+            themeIcon.classList.remove('animate-mode-spin');
+        }, 150);
+
+        // Trigger Main Branding Logo Animation
+        const mainLogo = document.getElementById('main-logo');
+        if (mainLogo) {
+            mainLogo.classList.remove('animate-logo-flip');
+            void mainLogo.offsetWidth; // Force a DOM reflow so the animation restarts
+            mainLogo.classList.add('animate-logo-flip');
+        }
     });
 
     /* --- Navbar Scroll Effect & Scroll Progress --- */
@@ -73,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
     
     // Highlight Active Navbar Link
+    const navItems = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
@@ -162,6 +158,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(type, typeDelay);
     }
+
+    /* --- Accordion Logic for Resume --- */
+    const resumeHeaders = document.querySelectorAll('.collapsible-header');
+    resumeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const parentItem = header.closest('.resume-item');
+            parentItem.classList.toggle('active');
+        });
+    });
 
     // Start typing animation slightly after load
     setTimeout(type, 1000);

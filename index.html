@@ -13,31 +13,45 @@
         rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23000000%22 rx=%2220%22/><text x=%2235%22 y=%2265%22 font-family=%22Arial, sans-serif%22 font-weight=%22bold%22 font-size=%2245%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>P.P</text><text x=%2275%22 y=%2265%22 font-family=%22Arial, sans-serif%22 font-weight=%22bold%22 font-size=%2245%22 fill=%22%23667eea%22 text-anchor=%22middle%22>.</text></svg>"
+        type="image/svg+xml">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">P.P<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+    <!-- Floating Dock Navigation -->
+    <nav class="navbar dock" id="navbar">
+        <div class="nav-container dock-container">
+            <ul class="nav-links dock-links">
+                <li><a href="#home" class="nav-link dock-icon active" aria-label="Home" title="Home"><i
+                            class="fas fa-home"></i></a></li>
+                <li><a href="#about" class="nav-link dock-icon" aria-label="About" title="About"><i
+                            class="fas fa-user"></i></a></li>
+                <li><a href="#skills" class="nav-link dock-icon" aria-label="Skills" title="Skills"><i
+                            class="fas fa-code"></i></a></li>
+                <li><a href="#experience" class="nav-link dock-icon" aria-label="Experience" title="Experience"><i
+                            class="fas fa-briefcase"></i></a></li>
+                <li><a href="#projects" class="nav-link dock-icon" aria-label="Projects" title="Projects"><i
+                            class="fas fa-laptop-code"></i></a></li>
+                <li><a href="#contact" class="nav-link dock-icon" aria-label="Contact" title="Contact"><i
+                            class="fas fa-envelope"></i></a></li>
+                <li class="dock-divider"></li>
+                <li><a href="https://github.com/prashantucer" target="_blank" class="nav-link dock-icon"
+                        aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/prashantpandey7/" target="_blank" class="nav-link dock-icon"
+                        aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                <li class="dock-divider"></li>
+                <li>
+                    <button id="theme-toggle" class="nav-link dock-icon theme-btn" aria-label="Toggle Theme"
+                        title="Toggle Theme">
+                        <i class="fas fa-sun mode-icon"></i>
+                    </button>
+                </li>
             </ul>
-            <div class="nav-controls">
-                <button id="theme-toggle" aria-label="Toggle Theme">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
         </div>
     </nav>
 
@@ -45,6 +59,9 @@
     <div class="scroll-progress-container">
         <div class="scroll-progress-bar" id="myBar"></div>
     </div>
+
+    <!-- Floating Brand Logo -->
+    <a href="#home" class="logo floating-logo" id="main-logo" aria-label="Home">P.P<span>.</span></a>
 
     <!-- Main Content -->
     <main>
@@ -139,6 +156,152 @@
             </div>
         </section>
 
+        <!-- Experience & Education Section -->
+        <section id="experience" class="resume section">
+            <div class="resume-container reveal">
+                <!-- Work Experience -->
+                <div class="resume-block">
+                    <h2>Work Experience</h2>
+                    <div class="resume-list">
+
+                        <!-- Institution's Innovation Council -->
+                        <div class="resume-item">
+                            <div class="resume-badge">I</div>
+                            <div class="resume-content">
+                                <div class="resume-header collapsible-header">
+                                    <h3>Institution's Innovation Council</h3>
+                                    <div class="header-right">
+                                        <span class="resume-date">Nov 2025 - Present</span>
+                                        <i class="fas fa-chevron-down toggle-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="resume-body">
+                                    <h4>Social Media Coordinator</h4>
+                                    <p>Prayagraj, Uttar Pradesh, India · Hybrid</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- E-Cell, UCER -->
+                        <div class="resume-item">
+                            <div class="resume-badge">E</div>
+                            <div class="resume-content">
+                                <div class="resume-header collapsible-header">
+                                    <h3>E-Cell, UCER Prayagraj</h3>
+                                    <div class="header-right">
+                                        <span class="resume-date">Jul 2025 - Present</span>
+                                        <i class="fas fa-chevron-down toggle-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="resume-body">
+                                    <h4>Design Head</h4>
+                                    <p style="margin-bottom: 10px;">Prayagraj, Uttar Pradesh, India · On-site</p>
+                                    <p>I oversee the complete visual identity and digital branding strategy for the
+                                        university's Entrepreneurship Cell. Leading a creative team, I direct the
+                                        development of high-impact marketing collateral, event graphics, and UI concepts
+                                        for our major programs, hackathons, and speaker sessions, ensuring a
+                                        professional and cohesive aesthetic across all our platforms.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ReWorks.in -->
+                        <div class="resume-item">
+                            <div class="resume-badge">R</div>
+                            <div class="resume-content">
+                                <div class="resume-header collapsible-header">
+                                    <h3>ReWorks.in</h3>
+                                    <div class="header-right">
+                                        <span class="resume-date">Jun 2025 - Jul 2025</span>
+                                        <i class="fas fa-chevron-down toggle-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="resume-body">
+                                    <h4>Web & SEO Intern</h4>
+                                    <p style="margin-bottom: 10px;">Prayagraj, Uttar Pradesh, India · On-site</p>
+                                    <p>During my two-month internship, I worked on website development and optimization
+                                        as part of a small team. I was responsible for building and customizing
+                                        responsive websites using WordPress, primarily using Elementor to design layouts
+                                        and develop fully functional pages. This involved theme customization, plugin
+                                        integration, and resolving design or technical issues.</p>
+                                    <br>
+                                    <p>I also assisted with hosting and deployment tasks, including server setup, domain
+                                        and DNS management, and routine maintenance to ensure smooth website
+                                        performance. On the optimization front, I focused on improving content
+                                        structure, enhancing page speed, and applying on-page SEO techniques to improve
+                                        visibility and user experience.</p>
+                                    <br>
+                                    <p>In addition, I was involved in direct client communication—understanding their
+                                        requirements, suggesting improvements, and delivering timely updates. The
+                                        experience helped me strengthen my technical skills, manage multiple tasks
+                                        efficiently, and adapt quickly in a fast-paced startup environment.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="resume-block education-block" style="margin-top: 2rem;">
+                    <h2>Education</h2>
+                    <div class="resume-list">
+                        <!-- UGI -->
+                        <div class="resume-item">
+                            <div class="resume-badge">U</div>
+                            <div class="resume-content">
+                                <div class="resume-header collapsible-header">
+                                    <h3>United Group of Institutions</h3>
+                                    <div class="header-right">
+                                        <i class="fas fa-chevron-down toggle-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="resume-body">
+                                    <h4>Bachelor of Technology - BTech, Computer Science</h4>
+                                    <p>Affiliated from Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CISCE -->
+                        <div class="resume-item">
+                            <div class="resume-badge">S</div>
+                            <div class="resume-content">
+                                <div class="resume-header collapsible-header">
+                                    <h3>St.Johns Co Ed School</h3>
+                                    <div class="header-right">
+                                        <i class="fas fa-chevron-down toggle-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="resume-body">
+                                    <h4>HSC, Education</h4>
+                                    <p>Council for the Indian School Certificate Examinations (CISCE)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CBSE -->
+                        <div class="resume-item">
+                            <div class="resume-badge">S</div>
+                            <div class="resume-content">
+                                <div class="resume-header collapsible-header">
+                                    <h3>Seth Anandram Jaipuria School (SARJ), Prayagraj</h3>
+                                    <div class="header-right">
+                                        <i class="fas fa-chevron-down toggle-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="resume-body">
+                                    <h4>INTERMEDIATE</h4>
+                                    <p>Central Board of Secondary Education (CBSE)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
         <section id="projects" class="projects section">
             <div class="section-title reveal">
@@ -154,7 +317,8 @@
                         <div class="project-overlay">
                             <a href="https://ugienigma.org/enigma13/" target="_blank" class="project-link"
                                 aria-label="View Project"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" class="project-link" aria-label="View Code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/prashantucer/enigmanew" class="project-link"
+                                aria-label="View Code"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -162,9 +326,9 @@
                         <p>An interactive technical challenges platform featuring real-time leaderboards, an event
                             registration system, and live updates.</p>
                         <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>Socket.io</span>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JS Framework</span>
                         </div>
                     </div>
                 </div>
@@ -172,12 +336,13 @@
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://prashant-dev.netlify.app/images/f791599031051ba3617ee67f2d24faf6.jpg"
-                            alt="Project 2">
+                        <img src="https://prashant-dev.netlify.app/images/06569d452f61fea15278ad725b6b75bf.jpg"
+                            alt="Ecellucer Website Screenshot">
                         <div class="project-overlay">
                             <a href="https://ecellucer.me" target="_blank" class="project-link"
                                 aria-label="View Project"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" class="project-link" aria-label="View Code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/prashantucer/ECELL-UCER" class="project-link"
+                                aria-label="View Code"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -185,9 +350,9 @@
                         <p>The official website for the Entrepreneurship Cell at UCER, Prayagraj to foster
                             entrepreneurial mindsets and provide mentorship resources.</p>
                         <div class="project-tech">
-                            <span>React</span>
-                            <span>TypeScript</span>
-                            <span>Tailwind</span>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JS Framework</span>
                         </div>
                     </div>
                 </div>
@@ -195,22 +360,23 @@
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://prashant-dev.netlify.app/images/06569d452f61fea15278ad725b6b75bf.jpg"
-                            alt="Project 3">
+                        <img src="https://prashant-dev.netlify.app/images/f791599031051ba3617ee67f2d24faf6.jpg"
+                            alt="My First Portfolio Screenshot">
                         <div class="project-overlay">
-                            <a href="https://learningtrackerap.netlify.app/" target="_blank" class="project-link"
+                            <a href="https://prashant-dev.netlify.app/" target="_blank" class="project-link"
                                 aria-label="View Project"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" class="project-link" aria-label="View Code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/prashantucer/personal-portfolio-react" target="_blank"
+                                class="project-link" aria-label="View Code"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Learning Tracker App</h3>
-                        <p>A personal productivity tool to track daily learning progress, set goals, and maintain
-                            consistency in skill development.</p>
+                        <h3>My First Portfolio</h3>
+                        <p>The original iteration of my personal portfolio, showcasing my early web development journey
+                            and foundational frontend skills.</p>
                         <div class="project-tech">
+                            <span>TypeScript</span>
+                            <span>Tailwind CSS</span>
                             <span>React</span>
-                            <span>Chart.js</span>
-                            <span>Local Storage</span>
                         </div>
                     </div>
                 </div>
@@ -257,7 +423,7 @@
                                     class="fab fa-x-twitter"></i></a>
                             <a href="https://www.instagram.com/prashantucer/" target="_blank" aria-label="Instagram"><i
                                     class="fab fa-instagram"></i></a>
-                            <a href="https://linktr.ee/PrashantPandey1" target="_blank" aria-label="Linktree"><i 
+                            <a href="https://linktr.ee/PrashantPandey1" target="_blank" aria-label="Linktree"><i
                                     class="fas fa-link"></i></a>
                         </div>
                     </div>
@@ -290,7 +456,6 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2026 Prashant Pandey. All rights reserved.</p>
-            <p>Designed & Built with <i class="fas fa-heart"></i></p>
         </div>
         <a href="#home" class="scroll-top" aria-label="Scroll to Top">
             <i class="fas fa-chevron-up"></i>
