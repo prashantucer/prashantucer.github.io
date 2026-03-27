@@ -903,37 +903,21 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-    .navbar {
-        width: 95%;
-        top: 1rem;
-        padding: 0.75rem 1.5rem;
+    .navbar.dock {
+        width: 92%;
+        bottom: 1rem;
+        padding: 0.5rem;
+        gap: 0;
     }
 
-    .nav-links {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: var(--bg-color);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s ease;
+    .dock-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .hamburger {
-        display: block;
+    .dock-divider {
+        margin: 0 0.15rem;
     }
 
     .hero-cta {
