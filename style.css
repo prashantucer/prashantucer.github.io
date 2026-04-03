@@ -58,6 +58,23 @@ body {
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
+    position: relative;
+}
+
+main, footer {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Interactive Canvas Trail --- */
+#cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1; /* Move behind content */
 }
 
 h1, h2, h3, h4, h5, h6 {

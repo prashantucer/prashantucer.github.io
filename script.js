@@ -170,4 +170,100 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start typing animation slightly after load
     setTimeout(type, 1000);
+
+    /* --- Interactive Magnetic Dot Grid --- */
+    const canvas = document.getElementById('cursor-trail');
+    const ctx = canvas.getContext('2d');
+    
+    let width, height, dpr;
+    let dots = [];
+    const isMobile = window.innerWidth < 768;
+    const spacing = isMobile ? 45 : 35; // Wider spacing on mobile for performance
+    const mouseRadius = isMobile ? 120 : 150;
+    let mouse = { x: -1000, y: -1000 };
+    let hue = 0;
+
+    function initGrid() {
+        dpr = window.devicePixelRatio || 1;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.scale(dpr, dpr);
+
+        dots = [];
+        for (let x = spacing / 2; x < width; x += spacing) {
+            for (let y = spacing / 2; y < height; y += spacing) {
+                dots.push({
+                    originX: x,
+                    originY: y,
+                    x: x,
+                    y: y,
+                    size: 1.5
+                });
+            }
+        }
+    }
+
+    initGrid();
+    
+    // Throttle resize events for performance
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initGrid, 200);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    // Handle touch movement for mobile users
+    window.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+            mouse.x = e.touches[0].clientX;
+            mouse.y = e.touches[0].clientY;
+        }
+    }, { passive: true });
+
+    const animateGrid = () => {
+        ctx.clearRect(0, 0, width, height);
+        
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        hue += 1.5;
+        if (hue > 360) hue = 0;
+
+        dots.forEach(dot => {
+            const dx = mouse.x - dot.originX;
+            const dy = mouse.y - dot.originY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < mouseRadius) {
+                const force = (mouseRadius - dist) / mouseRadius;
+                dot.x = dot.originX + dx * force * 0.4;
+                dot.y = dot.originY + dy * force * 0.4;
+                dot.size = 1.5 + force * 2.5;
+                ctx.fillStyle = `hsla(${hue + dist/2}, ${isDark ? '90%' : '70%'}, ${isDark ? '60%' : '45%'}, ${0.1 + force * 0.9})`;
+            } else {
+                dot.x += (dot.originX - dot.x) * 0.15;
+                dot.y += (dot.originY - dot.y) * 0.15;
+                dot.size += (1.5 - dot.size) * 0.15;
+                const baseOpacity = isDark ? 0.15 : 0.08;
+                ctx.fillStyle = isDark ? `rgba(255, 255, 255, ${baseOpacity})` : `rgba(0, 0, 0, ${baseOpacity})`;
+            }
+
+            ctx.beginPath();
+            ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animateGrid);
+    };
+
+    if (canvas) animateGrid();
+
 });
